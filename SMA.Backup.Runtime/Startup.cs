@@ -6,6 +6,7 @@ namespace SMA.Backup.Runtime
     {
         public static ContainerBuilder ConfigurationBuilder(ContainerBuilder builder)
         {
+            builder.RegisterModule(new BackupModule());
             builder.RegisterModule(new BackupSourceModule());
             builder.RegisterModule(new UtilModule());
             builder.RegisterModule(new CommonModule());

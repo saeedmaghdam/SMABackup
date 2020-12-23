@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMA.Backup.Destination", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMA.Backup.Test", "SMA.Backup.Test\SMA.Backup.Test.csproj", "{C7F3CF6B-CE24-4896-B0BE-13C2B1202148}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMA.Backup", "SMA.Backup\SMA.Backup.csproj", "{9F1E3C17-CEAA-40EB-85F5-27B0C9392179}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,17 @@ Global
 		{C7F3CF6B-CE24-4896-B0BE-13C2B1202148}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7F3CF6B-CE24-4896-B0BE-13C2B1202148}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7F3CF6B-CE24-4896-B0BE-13C2B1202148}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+=======
+		{9A60D9DB-C5E3-4FF1-8813-5A2B8E9895FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A60D9DB-C5E3-4FF1-8813-5A2B8E9895FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A60D9DB-C5E3-4FF1-8813-5A2B8E9895FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A60D9DB-C5E3-4FF1-8813-5A2B8E9895FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F1E3C17-CEAA-40EB-85F5-27B0C9392179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F1E3C17-CEAA-40EB-85F5-27B0C9392179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F1E3C17-CEAA-40EB-85F5-27B0C9392179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F1E3C17-CEAA-40EB-85F5-27B0C9392179}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 6f206a6... Added backup project
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,14 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="newtonsoft.json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SMA.Backup.BackupSource\SMA.Backup.Source.csproj" />
-    <ProjectReference Include="..\SMA.Backup.Common\SMA.Backup.Common.csproj" />
     <ProjectReference Include="..\SMA.Backup.Destination\SMA.Backup.Destination.csproj" />
-    <ProjectReference Include="..\SMA.Backup\SMA.Backup.csproj" />
+    <ProjectReference Include="..\SMA.Backup.Util\SMA.Backup.Util.csproj" />
   </ItemGroup>
 
 </Project>

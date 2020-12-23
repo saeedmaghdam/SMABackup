@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using SMA.Backup.Destination;
 using SMA.Backup.Destination.Framework;
+using SMA.Backup.Destination.Handler;
 
 namespace SMA.Backup.Runtime
 {
@@ -10,6 +11,7 @@ namespace SMA.Backup.Runtime
         {
             base.Load(builder);
 
+            builder.RegisterType<DestinationHandler>().As<IDestinationHandler>().InstancePerLifetimeScope();
             builder.RegisterType<GoogleDriveDestination>().As<IGoogleDriveDestination>().InstancePerLifetimeScope();
         }
     }
