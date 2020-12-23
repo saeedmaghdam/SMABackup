@@ -2,5 +2,6 @@
 {
     public class NullOutputModel : OutputModel
     {
+        public static NullOutputModel Create() => new NullOutputModel();
     }
 }
