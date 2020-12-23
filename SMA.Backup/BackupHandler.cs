@@ -40,6 +40,7 @@ namespace SMA.Backup
             {
                 var sourceName = backup.TryGetValue("source");
                 var destinationName = backup.TryGetValue("destination");
+                var deleteAfterSuccessBackup = backup.SelectToken("PostBackup").TryGetValue("DeleteBackup");
 
                 var source = sources.SingleOrDefault(x => JTokenHelper.TryGetValue(x, "name") == sourceName);
                 var destination = destinations.SingleOrDefault(x => JTokenHelper.TryGetValue(x, "name") == destinationName);
@@ -130,6 +131,9 @@ namespace SMA.Backup
                     }
 
                     var destinationResult = await _destinationHandler.CopyBackup(destinationConfiguration);
+
+                    if (bool.TryParse(deleteAfterSuccessBackup, out var boolDeleteAfterSuccessBackup))
+                        System.IO.Directory.Delete(sourceResult.Path, true);
                 }
             }
 
