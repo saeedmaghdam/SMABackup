@@ -10,6 +10,7 @@ namespace SMA.Backup.Runtime
             base.Load(builder);
 
             builder.RegisterType<CommonUtil>().As<ICommonUtil>().InstancePerLifetimeScope();
+            builder.RegisterType<SevenZipHelper>().As<ISevenZipHelper>().InstancePerLifetimeScope();
         }
     }
 }
