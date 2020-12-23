@@ -56,7 +56,9 @@ namespace SMA.Backup.Source
             {
             }
             else
-                return NullOutputModel.Create();
+            {
+                return SourceNullOutputModel.Instance();
+            }
 
             var process = new Process
             {

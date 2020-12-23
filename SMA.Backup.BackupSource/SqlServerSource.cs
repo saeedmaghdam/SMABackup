@@ -64,7 +64,9 @@ namespace SMA.Backup.Source
                 connection = new ServerConnection(serverName);
             }
             else
-                return NullOutputModel.Create();
+            {
+                return SourceNullOutputModel.Instance();
+            }
 
             Server sqlServer = new Server(connection);
             sqlServer.ConnectionContext.StatementTimeout = 60 * 60;

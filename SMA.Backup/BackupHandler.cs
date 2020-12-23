@@ -7,10 +7,10 @@ using SMA.Backup.Destination.Configuration;
 using SMA.Backup.Destination.Framework;
 using SMA.Backup.Framework;
 using SMA.Backup.Helper;
-using SMA.Backup.Model;
 using SMA.Backup.Util;
 using System.Linq;
 using System.Threading.Tasks;
+using SMA.Backup.Source.Model;
 
 namespace SMA.Backup
 {
@@ -27,7 +27,7 @@ namespace SMA.Backup
             _destinationHandler = destinationHandler;
         }
 
-        public async Task<OutputModel> Backup(string configFileFullPath)
+        public async Task<Model.OutputModel> Backup(string configFileFullPath)
         {
             var configFile = System.IO.File.ReadAllText(configFileFullPath);
             var json = JsonConvert.DeserializeObject(configFile);
@@ -41,11 +41,11 @@ namespace SMA.Backup
                 var sourceName = backup.TryGetValue("source");
                 var destinationName = backup.TryGetValue("destination");
 
-                var source = sources.Where(x => x.TryGetValue("name") == sourceName).SingleOrDefault();
-                var destination = destinations.Where(x => x.TryGetValue("name") == destinationName).SingleOrDefault();
+                var source = sources.SingleOrDefault(x => JTokenHelper.TryGetValue(x, "name") == sourceName);
+                var destination = destinations.SingleOrDefault(x => JTokenHelper.TryGetValue(x, "name") == destinationName);
 
-                ISourceConfiguration sourceConfiguration = new SMA.Backup.Source.Configuration.NullConfiguration();
-                IDestinationConfiguration destinationConfiguration = new SMA.Backup.Destination.Configuration.NullConfiguration();
+                ISourceConfiguration sourceConfiguration = SourceNullConfiguration.Instance();
+                IDestinationConfiguration destinationConfiguration = DestinationNullConfiguration.Instance();
 
                 var sourceType = source.TryGetValue("type");
                 var destinationType = destination.TryGetValue("type");
@@ -104,27 +104,30 @@ namespace SMA.Backup
 
                 var sourceResult = await _sourceHandler.CreateBackup(sourceConfiguration);
 
+                if (sourceResult != SourceNullOutputModel.Instance())
+                {
                     switch (destinationType.ToLower())
                     {
                         case "googledrive":
-                        {
-                            var newConfiguration = new GoogleDriveConfiguration();
-                            newConfiguration.ApplicationName = destination.TryGetValue("applicationname");
-                            newConfiguration.ClientId = destination.TryGetValue("clientid");
-                            newConfiguration.ClientSecret = destination.TryGetValue("clientsecret");
-                            newConfiguration.FileName = System.IO.Path.Combine(sourceResult.Path, sourceResult.FileName + sourceResult.FileExtension);
-                            newConfiguration.Name = source.TryGetValue("name");
+                            {
+                                var newConfiguration = new GoogleDriveConfiguration();
+                                newConfiguration.ApplicationName = destination.TryGetValue("applicationname");
+                                newConfiguration.ClientId = destination.TryGetValue("clientid");
+                                newConfiguration.ClientSecret = destination.TryGetValue("clientsecret");
+                                newConfiguration.FileName = System.IO.Path.Combine(sourceResult.Path, sourceResult.FileName + sourceResult.FileExtension);
+                                newConfiguration.Name = source.TryGetValue("name");
 
-                            destinationConfiguration = newConfiguration;
+                                destinationConfiguration = newConfiguration;
 
-                            break;
-                        }
+                                break;
+                            }
+                    }
+
+                    var destinationResult = await _destinationHandler.CopyBackup(destinationConfiguration);
                 }
-
-                var destinationResult = await _destinationHandler.CopyBackup(destinationConfiguration);
             }
 
-            return new OutputModel();
+            return new Model.OutputModel();
         }
     }
 }

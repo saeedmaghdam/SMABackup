@@ -19,13 +19,10 @@ namespace SMA.Backup.Source.Handler
         {
             if (configuration is SqlServerSource)
                 return _sqlServerSource.Backup(configuration);
-            else if (configuration is MongodbBackupSource)
+            if (configuration is MongodbBackupSource)
                 return _mongoDbSource.Backup(configuration);
 
-            return new Task<OutputModel>(() =>
-            {
-                return NullOutputModel.Create();
-            });
+            return new Task<OutputModel>(SourceNullOutputModel.Instance);
         }
     }
 }
