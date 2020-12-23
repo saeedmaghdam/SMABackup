@@ -5,6 +5,6 @@ namespace SMA.Backup.BackupSource.Framework
 {
     public interface IBackupSource
     {
-        Task<OutputModel> Backup();
+        Task<OutputModel> Backup(IBackupSourceConfiguration backupSourceConfiguration);
     }
 }
