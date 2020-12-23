@@ -16,11 +16,13 @@ namespace SMA.Backup.Source
     {
         private readonly ISystemConfiguration _configuration;
         private readonly ICommonUtil _commonUtil;
+        private readonly ISevenZipHelper _sevenZipHelper;
 
-        public MongodbBackupSource(ISystemConfiguration configuration, ICommonUtil commonUtil)
+        public MongodbBackupSource(ISystemConfiguration configuration, ICommonUtil commonUtil, ISevenZipHelper sevenZipHelper)
         {
             _configuration = configuration;
             _commonUtil = commonUtil;
+            _sevenZipHelper = sevenZipHelper;
         }
 
         public async Task<OutputModel> Backup(ISourceConfiguration backupSourceConfiguration)
@@ -31,7 +33,7 @@ namespace SMA.Backup.Source
             if (!System.IO.File.Exists(filePath))
                 System.IO.Directory.CreateDirectory(filePath);
             var fileName = backupDate.ToString("yyyyMMddHHmmss");
-            var fileExtension = ".zip";
+            var fileExtension = ".7z";
             var destinationPath = System.IO.Path.Combine(filePath, fileName + fileExtension);
 
             var backupPath = System.IO.Path.Combine(filePath, "backup");
@@ -81,17 +83,7 @@ namespace SMA.Backup.Source
             process.BeginErrorReadLine();
             process.WaitForExit();
 
-            ZipFile.CreateFromDirectory(System.IO.Path.Combine(backupPath), destinationPath);
-
-            var result = new OutputModel()
-            {
-                Path = filePath,
-                FileName = fileName,
-                FileExtension = fileExtension,
-                FileCreationDate = backupDate,
-                FileHash = _commonUtil.GetStringHashMD5(destinationPath),
-                FileSize = new System.IO.FileInfo(destinationPath).Length
-            };
+            _sevenZipHelper.CompressFolder(backupPath, destinationPath);
 
             return new OutputModel()
             {

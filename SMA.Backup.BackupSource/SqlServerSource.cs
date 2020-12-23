@@ -15,11 +15,13 @@ namespace SMA.Backup.Source
     {
         private readonly ISystemConfiguration _configuration;
         private readonly ICommonUtil _commonUtil;
+        private readonly ISevenZipHelper _sevenZipHelper;
 
-        public SqlServerSource(ISystemConfiguration configuration, ICommonUtil commonUtil)
+        public SqlServerSource(ISystemConfiguration configuration, ICommonUtil commonUtil, ISevenZipHelper sevenZipHelper)
         {
             _configuration = configuration;
             _commonUtil = commonUtil;
+            _sevenZipHelper = sevenZipHelper;
         }
 
         public async Task<OutputModel> Backup(ISourceConfiguration backupSourceConfiguration)
@@ -95,14 +97,18 @@ namespace SMA.Backup.Source
             //Remove the backup device from the Backup object.           
             sqlBackup.Devices.Remove(deviceItem);
 
+            fileExtension = ".7z";
+            var zipFileDestinationPath = System.IO.Path.Combine(filePath, fileName + fileExtension); // To compress bak file and pass to destination handler
+            _sevenZipHelper.CompressFile(destinationPath, zipFileDestinationPath);
+
             return new OutputModel()
             {
                 Path = filePath,
                 FileName = fileName,
                 FileExtension = fileExtension,
                 FileCreationDate = backupDate,
-                FileHash = _commonUtil.GetStringHashMD5(destinationPath),
-                FileSize = new System.IO.FileInfo(destinationPath).Length
+                FileHash = _commonUtil.GetStringHashMD5(zipFileDestinationPath),
+                FileSize = new System.IO.FileInfo(zipFileDestinationPath).Length
             };
         }
     }
