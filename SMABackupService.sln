@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMA.Backup.Util", "SMA.Back
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMA.Backup.Common", "SMA.Backup.Common\SMA.Backup.Common.csproj", "{F01E7E75-BA5D-4CAF-AD9E-515F4F622B79}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMA.Backup.Destination", "SMA.Backup.Destination\SMA.Backup.Destination.csproj", "{5BAE6DA8-21C4-4F14-AEDE-BC56AD87F08D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
