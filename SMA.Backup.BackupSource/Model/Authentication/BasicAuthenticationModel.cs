@@ -1,6 +1,6 @@
-﻿using SMA.Backup.BackupSource.Framework;
+﻿using SMA.Backup.Source.Framework;
 
-namespace SMA.Backup.BackupSource.Model.Authentication
+namespace SMA.Backup.Source.Model.Authentication
 {
     public class BasicAuthenticationModel : IAuthenticationModel
     {

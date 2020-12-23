@@ -1,8 +1,8 @@
-﻿using SMA.Backup.BackupSource.Framework;
+﻿using SMA.Backup.Source.Framework;
 
-namespace SMA.Backup.BackupSource.Configuration
+namespace SMA.Backup.Source.Configuration
 {
-    public abstract class BaseConfiguration : IBackupSourceConfiguration
+    public abstract class BaseConfiguration : ISourceConfiguration
     {
         public string Name
         {

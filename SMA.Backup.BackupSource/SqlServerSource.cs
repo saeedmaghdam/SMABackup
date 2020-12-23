@@ -2,27 +2,27 @@
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Management.Smo;
-using SMA.Backup.BackupSource.Configuration;
-using SMA.Backup.BackupSource.Framework;
-using SMA.Backup.BackupSource.Model;
-using SMA.Backup.BackupSource.Model.Authentication;
+using SMA.Backup.Source.Configuration;
+using SMA.Backup.Source.Framework;
+using SMA.Backup.Source.Model;
+using SMA.Backup.Source.Model.Authentication;
 using SMA.Backup.Common;
 using SMA.Backup.Util;
 
-namespace SMA.Backup.BackupSource
+namespace SMA.Backup.Source
 {
-    public class SqlServerBackupSource : ISqlServerBackupSource
+    public class SqlServerSource : ISqlServerSource
     {
         private readonly ISystemConfiguration _configuration;
         private readonly ICommonUtil _commonUtil;
 
-        public SqlServerBackupSource(ISystemConfiguration configuration, ICommonUtil commonUtil)
+        public SqlServerSource(ISystemConfiguration configuration, ICommonUtil commonUtil)
         {
             _configuration = configuration;
             _commonUtil = commonUtil;
         }
 
-        public async Task<OutputModel> Backup(IBackupSourceConfiguration backupSourceConfiguration)
+        public async Task<OutputModel> Backup(ISourceConfiguration backupSourceConfiguration)
         {
             var configuration = backupSourceConfiguration as SqlServerConfiguration;
             var backupDate = DateTime.UtcNow;

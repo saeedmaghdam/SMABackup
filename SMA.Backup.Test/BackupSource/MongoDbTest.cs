@@ -1,8 +1,8 @@
 using Autofac;
 using NUnit.Framework;
-using SMA.Backup.BackupSource.Configuration;
-using SMA.Backup.BackupSource.Framework;
-using SMA.Backup.BackupSource.Model.Authentication;
+using SMA.Backup.Source.Configuration;
+using SMA.Backup.Source.Framework;
+using SMA.Backup.Source.Model.Authentication;
 using SMA.Backup.Runtime;
 
 namespace SMA.Backup.Test.BackupSource
@@ -20,7 +20,7 @@ namespace SMA.Backup.Test.BackupSource
         [Test]
         public void Test1()
         {
-            var mongoDb = _container.Resolve<IMongoDbBackupSource>();
+            var mongoDb = _container.Resolve<IMongoDbSource>();
 
             mongoDb.Backup(new MongoDbConfiguration()
             {

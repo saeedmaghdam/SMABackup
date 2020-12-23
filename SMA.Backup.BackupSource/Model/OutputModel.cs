@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SMA.Backup.BackupSource.Model
+namespace SMA.Backup.Source.Model
 {
     public class OutputModel
     {

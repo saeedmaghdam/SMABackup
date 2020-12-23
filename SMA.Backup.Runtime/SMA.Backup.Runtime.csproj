@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SMA.Backup.BackupSource\SMA.Backup.BackupSource.csproj" />
+    <ProjectReference Include="..\SMA.Backup.BackupSource\SMA.Backup.Source.csproj" />
     <ProjectReference Include="..\SMA.Backup.Common\SMA.Backup.Common.csproj" />
     <ProjectReference Include="..\SMA.Backup.Destination\SMA.Backup.Destination.csproj" />
   </ItemGroup>

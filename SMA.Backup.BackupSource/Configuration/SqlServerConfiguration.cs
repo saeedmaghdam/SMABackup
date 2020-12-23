@@ -1,6 +1,6 @@
-﻿using SMA.Backup.BackupSource.Framework;
+﻿using SMA.Backup.Source.Framework;
 
-namespace SMA.Backup.BackupSource.Configuration
+namespace SMA.Backup.Source.Configuration
 {
     public class SqlServerConfiguration : BaseConfiguration
     {

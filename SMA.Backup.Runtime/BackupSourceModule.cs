@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using SMA.Backup.BackupSource;
-using SMA.Backup.BackupSource.Framework;
+using SMA.Backup.Source;
+using SMA.Backup.Source.Framework;
 
 namespace SMA.Backup.Runtime
 {
@@ -10,8 +10,8 @@ namespace SMA.Backup.Runtime
         {
             base.Load(builder);
 
-            builder.RegisterType<SqlServerBackupSource>().As<ISqlServerBackupSource>().InstancePerLifetimeScope();
-            builder.RegisterType<MongodbBackupSource>().As<IMongoDbBackupSource>().InstancePerLifetimeScope();
+            builder.RegisterType<SqlServerSource>().As<ISqlServerSource>().InstancePerLifetimeScope();
+            builder.RegisterType<MongodbBackupSource>().As<IMongoDbSource>().InstancePerLifetimeScope();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SMA.Backup.Source.Framework
 {
-    public interface IAuthenticationModel
+    public interface IMongoDbSource : ISource
     {
     }
 }
