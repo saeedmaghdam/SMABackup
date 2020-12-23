@@ -26,7 +26,7 @@ namespace SMA.Backup.Destination
             _commonUtil = commonUtil;
         }
 
-        public Task<OutputModel> Upload(IDestinationConfiguration destinationConfiguration)
+        public async Task<OutputModel> Upload(IDestinationConfiguration destinationConfiguration)
         {
             var result = new OutputModel();
             
@@ -35,7 +35,7 @@ namespace SMA.Backup.Destination
                 _configuration = destinationConfiguration as GoogleDriveConfiguration;
 
                 var service = Authorize();
-                uploadFile(service);
+                await UploadFile(service);
 
                 result.IsSuccessful = true;
             }
@@ -44,7 +44,7 @@ namespace SMA.Backup.Destination
                 // ignored
             }
 
-            return new Task<OutputModel>(() => result);
+            return result;
         }
 
         private DriveService Authorize()
@@ -75,7 +75,7 @@ namespace SMA.Backup.Destination
             return service;
         }
 
-        public bool uploadFile(DriveService driveService)
+        public async Task<bool> UploadFile(DriveService driveService)
         {
             if (System.IO.File.Exists(_configuration.FileName))
             {
@@ -90,7 +90,7 @@ namespace SMA.Backup.Destination
                 {
                     FilesResource.CreateMediaUpload request = driveService.Files.Create(body, stream, MimeTypeMap.GetMimeType(_configuration.FileName));
                     request.SupportsTeamDrives = true;
-                    request.Upload();
+                    await request.UploadAsync();
 
                     return true;
                 }

@@ -14,12 +14,12 @@ namespace SMA.Backup.Destination.Handler
             _googleDriveDestination = googleDriveDestination;
         }
 
-        public Task<OutputModel> CopyBackup(IDestinationConfiguration configuration)
+        public async Task<OutputModel> CopyBackup(IDestinationConfiguration configuration)
         {
             if (configuration is GoogleDriveConfiguration)
-                return _googleDriveDestination.Upload(configuration);
+                return await _googleDriveDestination.Upload(configuration);
 
-            return new Task<OutputModel>(() => new NullOutputModel());
+            return new Task<OutputModel>(() => new NullOutputModel()).Result;
         }
     }
 }
