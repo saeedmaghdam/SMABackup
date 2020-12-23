@@ -1,6 +1,7 @@
 ﻿using SMA.Backup.Destination.Framework;
 using SMA.Backup.Destination.Model;
 using System.Threading.Tasks;
+using SMA.Backup.Destination.Configuration;
 
 namespace SMA.Backup.Destination.Handler
 {
@@ -15,13 +16,10 @@ namespace SMA.Backup.Destination.Handler
 
         public Task<OutputModel> CopyBackup(IDestinationConfiguration configuration)
         {
-            if (configuration is GoogleDriveDestination)
+            if (configuration is GoogleDriveConfiguration)
                 return _googleDriveDestination.Upload(configuration);
 
-            return new Task<OutputModel>(() =>
-            {
-                return new NullOutputModel();
-            });
+            return new Task<OutputModel>(() => new NullOutputModel());
         }
     }
 }

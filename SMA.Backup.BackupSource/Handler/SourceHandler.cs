@@ -1,6 +1,7 @@
 ﻿using SMA.Backup.Source.Model;
 using SMA.Backup.Source.Framework;
 using System.Threading.Tasks;
+using SMA.Backup.Source.Configuration;
 
 namespace SMA.Backup.Source.Handler
 {
@@ -17,9 +18,10 @@ namespace SMA.Backup.Source.Handler
 
         public Task<OutputModel> CreateBackup(ISourceConfiguration configuration)
         {
-            if (configuration is SqlServerSource)
+            if (configuration is SqlServerConfiguration)
                 return _sqlServerSource.Backup(configuration);
-            if (configuration is MongodbBackupSource)
+            
+            if (configuration is MongoDbConfiguration)
                 return _mongoDbSource.Backup(configuration);
 
             return new Task<OutputModel>(SourceNullOutputModel.Instance);
