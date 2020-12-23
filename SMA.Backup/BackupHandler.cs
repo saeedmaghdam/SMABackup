@@ -90,11 +90,17 @@ namespace SMA.Backup
                             var username = source.TryGetValue("username");
                             var password = source.TryGetValue("password");
                             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+                            {
                                 newConfiguration.AuthenticationModel = new BasicAuthenticationModel()
                                 {
                                     Username = username,
                                     Password = password
                                 };
+                            }
+                            else
+                            {
+                                newConfiguration.AuthenticationModel = new NoAuthentication();
+                            }
 
                             sourceConfiguration = newConfiguration;
 
