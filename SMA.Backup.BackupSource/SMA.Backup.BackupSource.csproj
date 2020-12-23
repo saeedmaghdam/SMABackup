@@ -4,4 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="161.44091.28" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SMA.Backup.Common\SMA.Backup.Common.csproj" />
+    <ProjectReference Include="..\SMA.Backup.Util\SMA.Backup.Util.csproj" />
+  </ItemGroup>
+
 </Project>
