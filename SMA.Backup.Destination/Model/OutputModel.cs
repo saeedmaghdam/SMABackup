@@ -2,7 +2,7 @@
 {
     public class OutputModel
     {
-        private bool IsSuccessful
+        public bool IsSuccessful
         {
             get;
             set;

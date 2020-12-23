@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Google.Apis.Auth.OAuth2;
@@ -27,12 +28,23 @@ namespace SMA.Backup.Destination
 
         public Task<OutputModel> Upload(IDestinationConfiguration destinationConfiguration)
         {
-            _configuration = destinationConfiguration as GoogleDriveConfiguration;
+            var result = new OutputModel();
+            
+            try
+            {
+                _configuration = destinationConfiguration as GoogleDriveConfiguration;
 
-            var service = Authorize();
-            uploadFile(service);
+                var service = Authorize();
+                uploadFile(service);
 
-            return null;
+                result.IsSuccessful = true;
+            }
+            catch
+            {
+                // ignored
+            }
+
+            return new Task<OutputModel>(() => result);
         }
 
         private DriveService Authorize()
