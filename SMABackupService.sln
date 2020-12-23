@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMA.Backup.BackupSource", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMA.Backup.Util", "SMA.Backup.Util\SMA.Backup.Util.csproj", "{50A09B22-65DA-42CA-93F4-E18BA250E587}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMA.Backup.Common", "SMA.Backup.Common\SMA.Backup.Common.csproj", "{F01E7E75-BA5D-4CAF-AD9E-515F4F622B79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMA.Backup.Runtime", "SMA.Backup.Runtime\SMA.Backup.Runtime.csproj", "{9CF06442-9037-40B7-BF5A-0CA7312CF37F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMA.Backup.Common", "SMA.Backup.Common\SMA.Backup.Common.csproj", "{F01E7E75-BA5D-4CAF-AD9E-515F4F622B79}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMA.Backup.Destination", "SMA.Backup.Destination\SMA.Backup.Destination.csproj", "{5BAE6DA8-21C4-4F14-AEDE-BC56AD87F08D}"
 EndProject
