@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Saeed Aghdam</Authors>
+    <Company>SMA</Company>
   </PropertyGroup>
 
   <ItemGroup>
