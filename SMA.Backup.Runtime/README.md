@@ -6,6 +6,6 @@ Runtime is used to configure AutoFac modules to handle dependency injection. all
 ## Meta
 Saeed Aghdam –  [Linkedin](https://www.linkedin.com/in/saeedmaghdam/)
 
-Distributed under the MIT license. See  [`LICENSE`](https://raw.githubusercontent.com/saeedmaghdam/DynaLock/master/LICENSE)  for more information.
+Distributed under the MIT license. See  [`LICENSE`](https://raw.githubusercontent.com/saeedmaghdam/SMABackup/master/LICENSE)  for more information.
 
 [https://github.com/saeedmaghdam/](https://github.com/saeedmaghdam/)
