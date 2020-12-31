@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>SMABackup</id>
+    <version>1.0.0</version>
+    <title>SMABackup</title>
+    <authors>SMA</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/saeedmaghdam/SMABackupService</projectUrl>
+    <description>SMABackup is a library to backup specified user defined databases and sources to specified user defined destinations automatically.</description>
+    <releaseNotes>Supported sources are SQL Server and MongoDb, supported destination is GoogleDrive</releaseNotes>
+    <copyright>MIT</copyright>
+    <tags>Backup Automation Service BackupAutomate Worker Service Windows Backup Database SQL Server MongoDb GoogleDrive</tags>
+  </metadata>
+</package>
