@@ -128,6 +128,25 @@ namespace SMA.Backup
 
                                 break;
                             }
+                        case "email":
+                            {
+                                var newConfiguration = new EmailConfiguration();
+                                newConfiguration.MailServer = destination.TryGetValue("mailserver");
+                                newConfiguration.Port = int.Parse(destination.TryGetValue("port"));
+                                newConfiguration.Username = destination.TryGetValue("username");
+                                newConfiguration.Password = destination.TryGetValue("password");
+                                newConfiguration.From = destination.TryGetValue("from");
+                                newConfiguration.Ssl = bool.Parse(destination.TryGetValue("ssl"));
+                                newConfiguration.To = destination.TryGetValue("to");
+                                newConfiguration.Cc = destination.TryGetValue("cc");
+                                newConfiguration.Bcc = destination.TryGetValue("bcc");
+                                newConfiguration.FileName = System.IO.Path.Combine(sourceResult.Path, sourceResult.FileName + sourceResult.FileExtension);
+                                newConfiguration.Name = source.TryGetValue("name");
+
+                                destinationConfiguration = newConfiguration;
+
+                                break;
+                            }
                     }
 
                     var destinationResult = await _destinationHandler.CopyBackup(destinationConfiguration);

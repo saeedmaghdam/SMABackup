@@ -13,6 +13,7 @@ namespace SMA.Backup.Runtime
 
             builder.RegisterType<DestinationHandler>().As<IDestinationHandler>().InstancePerLifetimeScope();
             builder.RegisterType<GoogleDriveDestination>().As<IGoogleDriveDestination>().InstancePerLifetimeScope();
+            builder.RegisterType<EmailDestination>().As<IEmailDestination>().InstancePerLifetimeScope();
         }
     }
 }
