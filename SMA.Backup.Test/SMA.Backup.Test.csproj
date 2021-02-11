@@ -8,6 +8,8 @@
     <Authors>Saeed Aghdam</Authors>
 
     <Company>SMA</Company>
+
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

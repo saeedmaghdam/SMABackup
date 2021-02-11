@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SMABackup</id>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <title>SMABackup</title>
     <authors>SMA</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -13,4 +13,12 @@
     <copyright>MIT</copyright>
     <tags>Backup Automation Service BackupAutomate Worker Service Windows Backup Database SQL Server MongoDb GoogleDrive</tags>
   </metadata>
+  <files>
+	<file src="lib\SMA.Backup.Common.dll" target="lib" />
+	<file src="lib\SMA.Backup.Destination.dll" target="lib" />
+	<file src="lib\SMA.Backup.dll" target="lib" />
+	<file src="lib\SMA.Backup.Source.dll" target="lib" />
+	<file src="lib\SMA.Backup.Util.dll" target="lib" />
+	<file src="lib\SMA.Backup.Runtime.dll" target="lib" />
+  </files>
 </package>
