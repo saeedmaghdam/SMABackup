@@ -5,6 +5,7 @@ using SMA.Backup.Destination.Model;
 using SMA.Backup.Util;
 using SMA.Backup.Destination.Configuration;
 using System.Net.Mail;
+using System.Threading;
 
 namespace SMA.Backup.Destination
 {
@@ -51,7 +52,7 @@ namespace SMA.Backup.Destination
                 SmtpServer.Credentials = new System.Net.NetworkCredential(_configuration.Username, _configuration.Password);
                 SmtpServer.EnableSsl = _configuration.Ssl;
 
-                SmtpServer.Send(mail);
+                SmtpServer.SendMailAsync(mail).Wait(CancellationToken.None);
 
                 result.IsSuccessful = true;
             }

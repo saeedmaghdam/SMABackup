@@ -11,6 +11,7 @@ using SMA.Backup.Util;
 using System.Linq;
 using System.Threading.Tasks;
 using SMA.Backup.Source.Model;
+using System.Threading;
 
 namespace SMA.Backup
 {
@@ -149,10 +150,24 @@ namespace SMA.Backup
                             }
                     }
 
-                    var destinationResult = await _destinationHandler.CopyBackup(destinationConfiguration);
+                    _destinationHandler.CopyBackup(destinationConfiguration).Wait(CancellationToken.None);
 
                     if (bool.TryParse(deleteAfterSuccessBackup, out var boolDeleteAfterSuccessBackup))
-                        System.IO.Directory.Delete(sourceResult.Path, true);
+                    {
+                        int counter = 10;
+                        do
+                        {
+                            try
+                            {
+                                System.IO.Directory.Delete(sourceResult.Path, true);
+                            }
+                            catch
+                            {
+                                Thread.Sleep(2000);
+                            }
+                        }
+                        while (counter-- == 0);
+                    }
                 }
             }
 
