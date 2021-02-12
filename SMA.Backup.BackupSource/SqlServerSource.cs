@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microsoft.SqlServer.Management.Common;
-using Microsoft.SqlServer.Management.Smo;
 using SMA.Backup.Source.Configuration;
 using SMA.Backup.Source.Framework;
 using SMA.Backup.Source.Model;
 using SMA.Backup.Source.Model.Authentication;
 using SMA.Backup.Common;
 using SMA.Backup.Util;
+using Microsoft.SqlServer.Management.Smo;
+using Microsoft.SqlServer.Management.Common;
 
 namespace SMA.Backup.Source
 {
