@@ -7,14 +7,14 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "SMA.Backup.Runtime/1.1.0": {
+      "SMA.Backup.Runtime/1.1.1": {
         "dependencies": {
           "Autofac": "6.1.0",
           "NETStandard.Library": "2.0.3",
-          "SMA.Backup": "1.1.0",
-          "SMA.Backup.Common": "1.1.0",
-          "SMA.Backup.Destination": "1.1.0",
-          "SMA.Backup.Source": "1.1.0"
+          "SMA.Backup": "1.1.1",
+          "SMA.Backup.Common": "1.1.1",
+          "SMA.Backup.Destination": "1.1.1",
+          "SMA.Backup.Source": "1.1.1"
         },
         "runtime": {
           "SMA.Backup.Runtime.dll": {}
@@ -1426,43 +1426,43 @@
           }
         }
       },
-      "SMA.Backup/1.1.0": {
+      "SMA.Backup/1.1.1": {
         "dependencies": {
-          "SMA.Backup.Destination": "1.1.0",
-          "SMA.Backup.Source": "1.1.0",
-          "SMA.Backup.Util": "1.1.0",
+          "SMA.Backup.Destination": "1.1.1",
+          "SMA.Backup.Source": "1.1.1",
+          "SMA.Backup.Util": "1.1.1",
           "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "SMA.Backup.dll": {}
         }
       },
-      "SMA.Backup.Common/1.1.0": {
+      "SMA.Backup.Common/1.1.1": {
         "runtime": {
           "SMA.Backup.Common.dll": {}
         }
       },
-      "SMA.Backup.Destination/1.1.0": {
+      "SMA.Backup.Destination/1.1.1": {
         "dependencies": {
           "Google.Apis.Drive.v3": "1.49.0.2166",
           "MimeTypeMapOfficial": "1.0.14",
-          "SMA.Backup.Util": "1.1.0"
+          "SMA.Backup.Util": "1.1.1"
         },
         "runtime": {
           "SMA.Backup.Destination.dll": {}
         }
       },
-      "SMA.Backup.Source/1.1.0": {
+      "SMA.Backup.Source/1.1.1": {
         "dependencies": {
           "Microsoft.SqlServer.SqlManagementObjects": "161.46041.41",
-          "SMA.Backup.Common": "1.1.0",
-          "SMA.Backup.Util": "1.1.0"
+          "SMA.Backup.Common": "1.1.1",
+          "SMA.Backup.Util": "1.1.1"
         },
         "runtime": {
           "SMA.Backup.Source.dll": {}
         }
       },
-      "SMA.Backup.Util/1.1.0": {
+      "SMA.Backup.Util/1.1.1": {
         "dependencies": {
           "SevenZipSharp.Interop": "19.0.1",
           "System.Configuration.ConfigurationManager": "5.0.0"
@@ -1474,7 +1474,7 @@
     }
   },
   "libraries": {
-    "SMA.Backup.Runtime/1.1.0": {
+    "SMA.Backup.Runtime/1.1.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2305,27 +2305,27 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
-    "SMA.Backup/1.1.0": {
+    "SMA.Backup/1.1.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "SMA.Backup.Common/1.1.0": {
+    "SMA.Backup.Common/1.1.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "SMA.Backup.Destination/1.1.0": {
+    "SMA.Backup.Destination/1.1.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "SMA.Backup.Source/1.1.0": {
+    "SMA.Backup.Source/1.1.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "SMA.Backup.Util/1.1.0": {
+    "SMA.Backup.Util/1.1.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

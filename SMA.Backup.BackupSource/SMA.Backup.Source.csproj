@@ -4,11 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Saeed Aghdam</Authors>
     <Company>SMA</Company>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="161.44091.28" />
+    <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="161.46041.41" />
   </ItemGroup>
 
   <ItemGroup>
